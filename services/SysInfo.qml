@@ -16,6 +16,9 @@ Singleton {
     property real txSpeed: 0
 
     Component.onCompleted: {
+        const currentWallpaper = wallpapers[0].replace('~', '$HOME');
+        Quickshell.execDetached(["swww-daemon"]);
+        Quickshell.execDetached(["sh", "-c", "swww img \"" + currentWallpaper + "\""]);
         // Kickoff the cpu name detection for temperature
         cpuTempNameReader.checkNext()
     }
