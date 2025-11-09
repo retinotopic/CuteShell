@@ -15,6 +15,20 @@ Singleton {
     property real rxSpeed: 0
     property real txSpeed: 0
 
+    property list<string> wallpapers: ["~/nixos-config/home/nixos-everforest-light-outline.png",
+        "~/nixos-config/home/nixos-onedark-onedark.png",
+        "~/nixos-config/home/nixos-everforest-dark-outline.png",
+        "~/nixos-config/home/nixos-onedark-onedark.png"]
+
+    property int wallpaperCounter: 1
+
+    function nextWallpaper() {
+        if (wallpaperCounter === wallpapers.length) wallpaperCounter = 0
+        const currentWallpaper = wallpapers[wallpaperCounter].replace('~', '$HOME');
+        Quickshell.execDetached(["sh", "-c", "swww img \"" + currentWallpaper + "\""]);
+        wallpaperCounter+=1
+    }
+
     Component.onCompleted: {
         const currentWallpaper = wallpapers[0].replace('~', '$HOME');
         Quickshell.execDetached(["swww-daemon"]);
