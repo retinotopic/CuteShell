@@ -77,7 +77,7 @@ BarModuleItem {
         from: 1
         value:Battery.brightness
         handleWidthScale: root.config?.sliderProps?.handleWidthScale || 4
-        to: 255
+        to: 65535
         Connections {
             target: Battery
             function onBrightnessChanged() {
