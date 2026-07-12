@@ -20,8 +20,7 @@ Singleton {
         "~/nixos-config/home/nixos-everforest-dark-outline.png",
         "~/nixos-config/home/nixos-onedark-onedark.png"]
 
-    property int wallpaperCounter: 1
-
+    property int wallpaperCounter: 0
     function nextWallpaper() {
         if (wallpaperCounter === wallpapers.length) wallpaperCounter = 0
         const currentWallpaper = wallpapers[wallpaperCounter].replace('~', '$HOME');
