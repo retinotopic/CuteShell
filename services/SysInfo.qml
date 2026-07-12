@@ -30,8 +30,9 @@ Singleton {
 
     Component.onCompleted: {
         const currentWallpaper = wallpapers[0].replace('~', '$HOME');
-        Quickshell.execDetached(["awww-daemon"]);
-        Quickshell.execDetached(["sh", "-c", "awww img \"" + currentWallpaper + "\""]);
+        Quickshell.execDetached(["sh", "-c", "awww-daemon && awww img \"" + currentWallpaper + "\""]);
+        // Quickshell.execDetached(["awww-daemon"]);
+        // Quickshell.execDetached(["sh", "-c", "awww img \"" + currentWallpaper + "\""]);
         // Kickoff the cpu name detection for temperature
         cpuTempNameReader.checkNext()
     }
