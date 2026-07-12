@@ -22,7 +22,7 @@ Singleton {
 
     property int wallpaperCounter: 0
     function nextWallpaper() {
-        if (wallpaperCounter === wallpapers.length) wallpaperCounter = 0
+        if (wallpaperCounter === wallpapers.length) wallpaperCounter = 1
         const currentWallpaper = wallpapers[wallpaperCounter].replace('~', '$HOME');
         Quickshell.execDetached(["sh", "-c", "awww img \"" + currentWallpaper + "\""]);
         wallpaperCounter+=1
