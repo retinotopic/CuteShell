@@ -25,14 +25,14 @@ Singleton {
     function nextWallpaper() {
         if (wallpaperCounter === wallpapers.length) wallpaperCounter = 0
         const currentWallpaper = wallpapers[wallpaperCounter].replace('~', '$HOME');
-        Quickshell.execDetached(["sh", "-c", "swww img \"" + currentWallpaper + "\""]);
+        Quickshell.execDetached(["sh", "-c", "awww img \"" + currentWallpaper + "\""]);
         wallpaperCounter+=1
     }
 
     Component.onCompleted: {
         const currentWallpaper = wallpapers[0].replace('~', '$HOME');
-        Quickshell.execDetached(["swww-daemon"]);
-        Quickshell.execDetached(["sh", "-c", "swww img \"" + currentWallpaper + "\""]);
+        Quickshell.execDetached(["awww-daemon"]);
+        Quickshell.execDetached(["sh", "-c", "awww img \"" + currentWallpaper + "\""]);
         // Kickoff the cpu name detection for temperature
         cpuTempNameReader.checkNext()
     }
